@@ -1,6 +1,7 @@
 package com.nepplus.apipractice_20220106.api
 
 import android.util.Log
+import retrofit2.Retrofit
 
 class ServerAPI {
 
@@ -12,9 +13,19 @@ class ServerAPI {
 
     companion object {
 
+//          이 { } 안에 적는 변수 / 함수들은 => ServerAPI.변수 / 함수로 활용 가능
+
+        private val BASE_URL = "https://api.gudoc.in"  //  기본 보안 처리는 되어있는 서버 => 이 클래스 내부에서만 사용할 예정
+        private var retrofit : Retrofit? = null // 서버 연결 전담 변수 => 기본적으로는 아직 안만든 상태(null)
+
+//        retrofit 변수에 환경설정 + 객체화 => 가져다 쓸 수 있게 하는 기능 ( 함수 )
+
+        fun getRetrofit() : Retrofit {
+
 
 
         }
+
 
     }
 
