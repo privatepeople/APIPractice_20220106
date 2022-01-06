@@ -25,7 +25,7 @@ interface APIList {
 
     @FormUrlEncoded
     @PUT("/user")
-    fun PUTRequestSignUp(
+    fun putRequestSignUp(
         @Field("email") email: String,
         @Field("password") pw: String,
         @Field("nick_name") nick: String,
