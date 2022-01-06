@@ -48,6 +48,14 @@ class LoginActivity : BaseActivity() {
 
                         Toast.makeText(this@LoginActivity, "${logInUserNick}님, 환영합니다!", Toast.LENGTH_SHORT).show()
 
+//                        메인화면으로 이동
+                        val myIntent = Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
+
+                        finish()
+
+
+
                     }
                     else {
 //                        로그인 실패 => 아이디 틀림 or 비번 틀림
