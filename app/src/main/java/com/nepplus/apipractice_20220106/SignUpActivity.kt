@@ -84,5 +84,38 @@ class SignUpActivity : AppCompatActivity() {
 
         }
 
+        btnEmailCheck.setOnClickListener {
+
+            val inputEmail = edtEmail.text.toString()
+            val retrofit = ServerAPI.getRetrofit()
+            val apiList = retrofit.create(APIList::class.java)
+
+            apiList.getRequestDuplCheck("EMAIL", inputEmail).enqueue(object : Callback<BasicResponse>{
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+
+                    if (response.isSuccessful) {
+//                        code : 200으로 성공 (사용 가능)
+                        txtEmailCheckResult.text = "사용해도 좋은 이메일입니다."
+                    }
+                    else {
+//                        그 외 : 사용하면 안되는 이메일
+                        txtEmailCheckResult.text = "중복된 이메일입니다. 다른 이메일을 사용해 주십시오"
+                    }
+
+
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+
+            })
+
+        }
+
     }
 }
